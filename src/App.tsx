@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Home from './pages/home/index/Home';
+import SideNavbar from './components/SideNavbar';
+import TopNavbar from './components/TopNavbar';
+import { Link,Route,BrowserRouter as Router,Routes } from 'react-router-dom';
+import Trending from './pages/trending/index/Trending';
+import Favourite from './pages/favourites/index/Favourite';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-black sm:w-[100vw] md:w-[100vw] lg:w-[100vw] m-0 p-0 ">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="favourite" element={<Favourite />} />
+          <Route path="trending" element={<Trending />} />
+        </Route>
+        </Routes>
+      
+      </Router>
     </div>
   );
 }
